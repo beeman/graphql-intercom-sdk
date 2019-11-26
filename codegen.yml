@@ -1,0 +1,16 @@
+overwrite: true
+schema: "http://localhost:4567"
+documents: src/queries/*.graphql
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - add: "/* tslint:disable */"
+      - "typescript"
+      - "typescript-operations"
+      - "kikstart-graphql-client-codegen"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
+hooks:
+  afterAllFileWrite:
+    - npx eslint --fix

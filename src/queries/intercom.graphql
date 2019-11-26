@@ -1,0 +1,19 @@
+subscription Intercom($filter: SubscribeInput) {
+  intercom(filter: $filter) {
+    type
+    scope
+    payload
+  }
+}
+
+mutation Publish($message: PublishInput) {
+  publish(message: $message) {
+    type
+    scope
+    payload
+  }
+}
+
+query Uptime {
+  uptime
+}
